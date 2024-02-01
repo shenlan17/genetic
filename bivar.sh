@@ -5,8 +5,8 @@ echo $cmd > "test/mixer/script/MDD_vs_"$phe"_fit2_"$i".sh"
 qsub -q cluster5 -e "test/mixer/script/MDD_vs_"$phe"_fit2_"$i".err" -o "test/mixer/script/MDD_vs_"$phe"_fit2_"$i".out" "test/mixer/script/MDD_vs_"$phe"_fit2_"$i".sh"
 done
 
-phe=0217
-for i in $(seq 1 5);do
+phe=0218
+for i in $(seq 1 20);do
 cmd="anaconda/anaconda3/envs/python3.8.8/bin/python3.8 mixer/mixer-master/precimed/mixer.py test2 --trait1-file test/cFDR/traitfolder/"$phe".csv_z.csv.gz --trait2-file test/cFDR/traitfolder/MDD2013_noMHC.csv.gz --load-params-file test/mixer/bivar_res/MDD_vs_"$phe".fit.rep"$i".json --out test/mixer/bivar_res/MDD_vs_"$phe".test2.rep"$i" --bim-file mixer/1000G_EUR_Phase3_plink/1000G.EUR.QC.@.bim --ld-file mixer/1000G_EUR_Phase3_plink/1000G.EUR.QC.@.run4.ld --lib  mixer/mixer-master/src/build/lib/libbgmg.so"
 echo $cmd > "test/mixer/script/MDD_vs_"$phe"_test2_"$i".sh"
 qsub -q cluster5 -e "test/mixer/script/MDD_vs_"$phe"_test2_"$i".err" -o "test/mixer/script/MDD_vs_"$phe"_test2_"$i".out" "test/mixer/script/MDD_vs_"$phe"_test2_"$i".sh"
