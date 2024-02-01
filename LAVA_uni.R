@@ -3,11 +3,11 @@ arg = commandArgs(T); info = arg[1]; outdir=arg[2];
 library(LAVA)
 ### Read in data
 sum.id<-read.table(info,header=T)
-loci = read.loci("/gpfsnew/lab/groupYU/members/liumengge/test/LAVA/MDD2023_FS/shared/shared_loci")
+loci = read.loci("shared_loci")
 n.loc = nrow(loci)
 input = process.input(input.info.file=info,           # input info file
                       sample.overlap.file=NULL,   # sample overlap file (can be set to NULL if there is no overlap)
-                      ref.prefix="/gpfs/lab/groupYU/members/liumengge/g1000_eur/g1000_eur",                    # reference genotype data prefix
+                      ref.prefix="g1000_eur",                    # reference genotype data prefix
                       phenos=sum.id$phenotype)       # subset of phenotypes listed in the input info file that we want to process
 
 t1=proc.time()
