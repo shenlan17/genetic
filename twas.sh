@@ -1,6 +1,6 @@
-sigfile="/gpfsnew/lab/groupYU/members/liumengge/test/twas/info"
+sigfile="twas/info"
 line_count=$(awk 'END{print NR}' "$sigfile")
-gwasfolder=/gpfsnew/lab/groupYU/members/liumengge/test/cFDR/traitfolder/
+gwasfolder=cFDR/traitfolder/
 modelfolder=/gpfsnew/lab/groupYU/members/liumengge/software/predixcan/elastic_net_models/
 for i in $(seq 1 $line_count);do
 IDP=`cat $sigfile|awk 'NR=='$i' {print $1}'`
@@ -15,5 +15,5 @@ tissue=`cat $sigfile|awk 'NR=='$i' {print $2}'`
 --non_effect_allele_column A2 \
 --beta_column BETA \
 --pvalue_column PVAL \
---output_file "/gpfsnew/lab/groupYU/members/liumengge/test/twas/"$IDP"_"$tissue".csv"
+--output_file "twas/"$IDP"_"$tissue".csv"
 done
