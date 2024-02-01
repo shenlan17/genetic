@@ -1,11 +1,11 @@
 sigfile="twas/info"
 line_count=$(awk 'END{print NR}' "$sigfile")
 gwasfolder=cFDR/traitfolder/
-modelfolder=/gpfsnew/lab/groupYU/members/liumengge/software/predixcan/elastic_net_models/
+modelfolder=predixcan/elastic_net_models/
 for i in $(seq 1 $line_count);do
 IDP=`cat $sigfile|awk 'NR=='$i' {print $1}'`
 tissue=`cat $sigfile|awk 'NR=='$i' {print $2}'`
-/gpfsnew/lab/groupYU/members/liumengge/software/predixcan/MetaXcan-master/software/SPrediXcan.py \
+predixcan/MetaXcan-master/software/SPrediXcan.py \
 --model_db_path $modelfolder"en_Brain_$tissue.db" \
 --covariance $modelfolder"en_Brain_$tissue.txt.gz" \
 --gwas_folder $gwasfolder \
